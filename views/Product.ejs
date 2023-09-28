@@ -1,0 +1,75 @@
+<!-- For Notes page  -->
+<%- include("partials/header") -%>
+
+<!-- Projects Section-->
+<section class="py-5">
+    <div class="container px-5 mb-5">
+
+        <!-- <div class="text-center mb-5">
+            <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Discover Your AI Expert!</span></h1>
+        </div> -->
+
+        <div class="text-center mb-5">
+          <h1 class="display-5 fw-bolder mb-0" id="productTitle"><span class="text-gradient d-inline" id="nestedProductTitleSpan"></span></h1>
+        </div>
+
+
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-11 col-xl-9 col-xxl-8">
+
+            <!-- Prompt Input Card -->
+                 <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+                     <div class="card-body p-5 text-center">
+                         <form action="/PromptPage" method="POST">
+                             <div class="mb-3">
+                                 <label for="promptInput" class="form-label text-gradient-style" id="dynamicLabel">Tell Me What You Want:</label>
+                                 <textarea class="form-control" id="promptInput" name="prompt" rows="5" required></textarea>
+                             </div>
+                             <button type="submit" class="btn btn-primary">Generate</button>
+                         </form>
+                     </div>
+                 </div>
+
+
+
+              <!-- card 2 -->
+              <div class="card overflow-hidden shadow rounded-4 border-0">
+                  <div class="card-body p-5" id="resultCardBody">
+                      <h4 class="custom-font-size fw-bolder text-center mb-0">
+                          <span class="text-gradient d-inline">Analyzed Result:</span>
+                          <p></p>
+                      </h4>
+                      <!-- loading gif and text -->
+                      <div id="loadingBar" style="display: none; text-align: center;">
+                          <div class="spinner-border" role="status">
+                             <span class="sr-only">Analyzing now...</span>
+                          </div>
+                          <p>Analyzing now...</p>  <!-- Positioning the text above the GIF -->
+                          <img src="https://media.giphy.com/media/L2fiwKj5VfpFycNDZA/giphy.gif" alt="Tesla Cybertruck" />
+                      </div>
+
+                      <% results.forEach(function(result) { %>
+                          <div class="my-2 text-left"><%= result.trim() %></div>
+                      <% }); %>
+                  </div>
+              </div>
+
+
+            </div>
+        </div>
+
+
+    </div>
+</section>
+
+<!-- Call to action section-->
+<section class="py-5 bg-gradient-primary-to-secondary text-white">
+    <div class="container px-5 my-5">
+        <div class="text-center">
+            <h2 class="display-4 fw-bolder mb-4">Let's work together!</h2>
+            <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" href="/">Contact me</a>
+        </div>
+    </div>
+</section>
+
+<%- include("partials/footer") -%>
